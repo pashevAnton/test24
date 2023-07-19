@@ -1,0 +1,26 @@
+<template>
+  <div class="page">
+    <div class="page__content">
+      <slot />
+    </div>
+  </div>
+</template>
+
+<style scoped>
+.page {
+  width: 100vw;
+  height: 100vh;
+  padding: 90px;
+  overflow: hidden;
+}
+
+.page__content {
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100%;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+</style>
