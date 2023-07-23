@@ -7,7 +7,7 @@
 }
 
 .current-time-display-with-widget__time {
-    color: #ffffff;
+    color: #000;
     font-size: 48px;
     line-height: 150%;
     font-weight: 500;
