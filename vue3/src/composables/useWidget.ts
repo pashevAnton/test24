@@ -1,4 +1,4 @@
-import { ref, onMounted } from 'vue';
+import {ref, onMounted, onUnmounted} from 'vue';
 export function useWidget() {
   const widgetLoaded = ref(false);
 
@@ -33,6 +33,13 @@ export function useWidget() {
     document.body.appendChild(script);
     widgetLoaded.value = true;
   });
+
+  onUnmounted(() => {
+    const widgetElement: HTMLElement | null = document.querySelector('.widget-container');
+    if(widgetElement){
+      widgetElement.innerHTML = '';
+    }
+  })
 
   return {
     widgetLoaded

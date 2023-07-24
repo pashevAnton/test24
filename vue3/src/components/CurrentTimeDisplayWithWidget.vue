@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {onBeforeUnmount, onMounted, ref} from "vue";
-import { useWidget } from '@/composables/UseWidget';
+import { useWidget } from '@/composables/useWidget';
 
 const interval = ref<null | number>(null)
 const currentTime = ref(new Date())
