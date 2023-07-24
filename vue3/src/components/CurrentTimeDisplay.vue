@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {onBeforeUnmount, onMounted, ref} from "vue";
 
-const interval = ref(null)
+const interval = ref<null | number>(null)
 const currentTime = ref(new Date())
 
 onMounted(() => {
@@ -11,7 +11,7 @@ onMounted(() => {
 })
 
 onBeforeUnmount(() => {
-  clearInterval(interval.value)
+  clearInterval(interval.value!)
 })
 </script>
 
@@ -31,7 +31,7 @@ onBeforeUnmount(() => {
 }
 
 .current-time-display__time {
-  color: #ffffff;
+  color: #000;
   font-size: 48px;
   line-height: 150%;
   font-weight: 500;

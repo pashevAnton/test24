@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import {onBeforeUnmount, onMounted, ref} from "vue";
+import { useWidget } from '@/composables/UseWidget';
 
-const interval = ref(null)
+const interval = ref<null | number>(null)
 const currentTime = ref(new Date())
+const { widgetLoaded } = useWidget();
 
 onMounted(() => {
   interval.value = setInterval(() => {
@@ -11,14 +13,16 @@ onMounted(() => {
 })
 
 onBeforeUnmount(() => {
-  clearInterval(interval.value)
+  clearInterval(interval.value!)
 })
+
+
 </script>
 
 <template>
   <div class="current-time-display-with-widget" :data-time="currentTime">
     <div class="current-time-display-with-widget__time">{{ currentTime }}</div>
-    <!--  PUT_WIDGET_HERE  -->
+    <div class="widget-container exampleWrapperContent">{{widgetLoaded.valueOf()}}</div>
   </div>
 </template>
 
@@ -32,7 +36,7 @@ onBeforeUnmount(() => {
 }
 
 .current-time-display-with-widget__time {
-  color: #ffffff;
+  color: #000;
   font-size: 48px;
   line-height: 150%;
   font-weight: 500;
